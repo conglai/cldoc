@@ -1,0 +1,10 @@
+table
+  thead
+    tr
+      each key in keys
+        th= titleRow[key]
+  tbody
+    each row in rows
+      tr
+        each key in keys
+          td= row[key]

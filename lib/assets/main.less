@@ -1,0 +1,77 @@
+@import "./lesshat-prefixed.less";
+.g-nav {
+  position: fixed;
+  width: 200px;
+  padding: 0 10px 0 20px;
+  background: #eee;
+  left: 0;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.g-nav-list {
+  padding-left: 0;
+  margin-top: 4px;
+  .nav-item {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 10px;
+    // .lh-opacity(0);
+    // .lh-transition(all, 0.6s, ease-in-out, 0.1s);
+  }
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .active {
+    .nav-link {
+      color: #28c3c2;
+    }
+  }
+  .nav-sub:before {
+    content: '+';
+    color: #28c3c2;
+    padding-right: 6px;
+  }
+  .nav-title-0 {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  .nav-title-1 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+
+
+
+.g-doc {
+  padding: 10px 20px 10px 240px;
+  .g-nav-list {
+    padding-left: 0;
+    .nav-item {
+      margin-top: 4px;
+    }
+  }
+  .nav-title-0 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .nav-title-1 {
+    font-size: 1em;
+    font-weight: normal;
+  }
+  .nav-title-1:before {
+    content: '+';
+    color: #28c3c2;
+    padding-right: 6px;
+  }
+}
+
+.g-footer {
+  text-align: center;
+}

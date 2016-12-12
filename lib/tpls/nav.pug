@@ -1,0 +1,19 @@
+
+ul.g-nav-list
+  each navItem in navTree
+    - var tabSize = navItem.tabSize
+    li.J_navItem.nav-item(
+      data-tab-size=tabSize
+      data-url=navItem.filename
+    )
+      - var keywords = navItem.keywords
+      - keywords.unshift(navItem.title)
+      - var navCls = tabSize < 2 ? `nav-link nav-title-${tabSize}`: 'nav-link nav-sub'
+      - var marginLeft = tabSize * 10
+      a(
+        class=navCls
+        href=navItem.url
+        title=navItem.title
+        data-keywords=`${keywords.join(',')}`
+        style=`margin-left: ${marginLeft}px`
+      )= navItem.title

@@ -1,0 +1,37 @@
+{
+  "name": "cldoc",
+  "version": "0.1.0",
+  "description": "Example",
+  "scripts": {
+    "mocha": "NODE_ENV=test mocha tests/**/*.test.js -r ./tests/helper.js -R dot -w",
+    "doc": "lessc commands/doc/assets/main.less commands/doc/assets/main.css",
+    "cover": "istanbul cover --report html node_modules/.bin/_mocha -- tests/**/*.test.js -r ./tests/helper.js -R dot"
+  },
+  "main": "lib/doc.js",
+  "bin": {
+    "cldoc": "./index.js"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:conglai/cldoc.git"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "co": "^4.6.0",
+    "commander": "^2.9.0",
+    "fs-extra": "^1.0.0",
+    "pug": "^2.0.0-beta6",
+    "rimraf": "^2.5.4",
+    "showdown": "^1.5.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.0",
+    "eslint": "^3.7.1",
+    "lesshat": "^4.1.0",
+    "mocha": "^3.0.2",
+    "should": "^8.2.2",
+    "should-sinon": "0.0.5",
+    "sinon": "^1.17.6"
+  }
+}
