@@ -27,7 +27,7 @@ describe('测试lib/doc.js', () => {
         "xx":"xx"
       }
       `
-    });
+    }, { title: 'xxx'});
     console.log(tagStr);
     // console.log(modelStr);
     let resultStr = md.renderJSON(modelStr);
