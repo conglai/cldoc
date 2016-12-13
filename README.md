@@ -27,4 +27,4 @@ Result: [http://ykan.github.io/blog/](http://ykan.github.io/blog/)
 ```
 
 ## 自定义的标签
-[http://ykan.github.io/blog/lasted-1.doc-tool-tag.md.html](http://ykan.github.io/blog/lasted-1.doc-tool-tag.md.html)
+[http://www.ykan.space/docs/lasted-1.doc-tool-tag.md.html](http://www.ykan.space/docs/lasted-1.doc-tool-tag.md.html)
