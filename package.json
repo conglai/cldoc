@@ -1,6 +1,6 @@
 {
   "name": "cldoc",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "description": "Example",
   "scripts": {
     "dev": "http-server assets -p 8088",
