@@ -1,5 +1,24 @@
 @c-border-color: #e8e8e8;
 
+body, button, input, select, textarea {
+  font: 16px/1.5 'PingFangSC-Regular', 'Microsoft YaHei', 'San Francisco','Helvetica Neue',Roboto,arial,sans-serif;
+  -webkit-text-size-adjust:none;
+  -moz-text-size-adjust:none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+  color: #333;
+}
+
+body {
+  margin: 0;
+}
+
+code {
+  background: #e0e0e0;
+  border-radius: 3px;
+  padding: 0 4px;
+}
+
 .markdown-body {
   a{ color: #0645ad; text-decoration:none;}
   a:visited{ color: #0b0080; }
@@ -23,18 +42,29 @@
     max-width:100%;
   }
 
-  h1,h2,h3,h4,h5,h6{
-    font-weight:normal;
-    color:#111;
-    line-height:1.4em;
+  h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eee;
   }
-  h4,h5,h6{ font-weight: bold; }
-  h1{ font-size: 24px; }
-  h2{ font-size: 20px; }
-  h3{ font-size: 18px; }
-  h4{ font-size: 16px; }
-  h5{ font-size: 16px; }
-  h6{ font-size: 16px; }
+  h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+  }
+  h3 {
+    font-size: 1.25em;
+  }
+  h4 {
+    font-size: 1em;
+  }
+  h5 {
+    font-size: 0.875em;
+  }
+  h6 {
+    font-size: 0.85em;
+    color: #777;
+  }
 
   blockquote{
     color:#666666;
@@ -44,7 +74,15 @@
   }
   hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
 
+  pre {
+    overflow: hidden;
+    border-radius: 3px;
+  }
 
+  pre code {
+    padding: 16px;
+    font: 12px/1.4 Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  }
   b, strong {
     font-weight: bold;
   }
@@ -59,8 +97,28 @@
   sup { top: -0.5em; }
   sub { bottom: -0.25em; }
 
-  ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
-  li p:last-child { margin:0 }
+
+  ul,
+  ol {
+    padding-left: 2em;
+  }
+
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  li>p {
+    margin-top: 16px;
+  }
+
+  li+li {
+    margin-top: 0.25em;
+  }
+
   dd { margin: 0 0 0 2em; }
 
   img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }

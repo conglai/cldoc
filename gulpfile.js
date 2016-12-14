@@ -12,13 +12,17 @@ const pump = require('pump');
 const co = require('co');
 const fs = require('fs');
 
-gulp.task('build-main-css', done => {
+function buildMain(done) {
   pump([
     gulp.src('assets-src/main/*.less'),
     less(),
     concat('main.css'),
     gulp.dest('assets')
   ], done);
+}
+
+gulp.task('build-main-css', done => {
+  buildMain(done);
 });
 
 gulp.task('build-main-js', done => {
@@ -61,3 +65,25 @@ gulp.task('build-js', ['build-main-js'], done => {
 });
 
 gulp.task('default', ['build-js', 'build-css']);
+
+gulp.task('dev', done => {
+  gulp.watch('assets-src/main/**', e => {
+    let filepath = e.path;
+    if(filepath.indexOf('.less') !== -1) {
+      buildMain(() => {
+        gutil.log('main.css built.');
+        buildStyle('gruvbox-dark.css').then(() => {
+          gutil.log('cldoc-gruvbox-dark.css built.');
+        });
+      });
+    } else if(filepath.indexOf('.js') !== -1) {
+      pump([
+        gulp.src(['assets-src/lib/*.js', 'assets-src/main/*.js']),
+        concat('cldoc.js'),
+        gulp.dest('assets')
+      ], () => {
+        gutil.log('cldoc.js built.');
+      });
+    }
+  });
+});

@@ -34,7 +34,9 @@ program
       yield cleanDir(outputDir);
       fse.ensureDirSync(outputDir);
       let doc = docFunc(`${workspace}/models`, `${workspace}/documents`, outputDir);
-      yield doc.renderFileTree();
+      yield doc.renderFileTree(item => {
+        console.log(`generate ${item.filename}`);
+      });
     });
   });
 
