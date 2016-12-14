@@ -1,5 +1,14 @@
 # ykan
 
+```config
+{
+  "baseUrl": "//cdn.withme.cn/a/cldoc/0.2.2/",
+  //ssss
+  "x": ""
+  //sasd
+}
+```
+
 ## 这个是对的
 
 ```json

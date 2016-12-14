@@ -2,6 +2,13 @@
 
 `hey-xxx`
 
+```config
+{
+  //可以用行注释
+  "baseUrl": "xxxx"
+}
+```
+
 ```json-table
 [
   { "name": "名称", "type": "类型" },  

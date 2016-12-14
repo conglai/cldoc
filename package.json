@@ -1,6 +1,6 @@
 {
   "name": "cldoc",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Example",
   "scripts": {
     "mocha": "NODE_ENV=test mocha tests/**/*.test.js -r ./tests/helper.js -R dot -w",
@@ -28,8 +28,13 @@
   "devDependencies": {
     "babel-eslint": "^7.1.0",
     "eslint": "^3.7.1",
-    "lesshat": "^4.1.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-less": "^3.3.0",
+    "gulp-uglify": "^1.2.0",
     "mocha": "^3.0.2",
+    "pump": "^1.0.1",
     "should": "^8.2.2",
     "should-sinon": "0.0.5",
     "sinon": "^1.17.6"

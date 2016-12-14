@@ -28,7 +28,7 @@ describe('测试lib/doc.js', () => {
       }
       `
     }, { title: 'xxx'});
-    console.log(tagStr);
+    // console.log(tagStr);
     // console.log(modelStr);
     let resultStr = md.renderJSON(modelStr);
     // console.log(resultStr);
@@ -74,9 +74,6 @@ describe('测试lib/doc.js', () => {
         `${__dirname}/build`
       );
       yield doc.renderFileTree();
-      // let navTree = yield doc.getTree(`${__dirname}/tree`, 1);
-      // let md = targetFunc(`${__dirname}/models`, `${__dirname}/tree`, navTree);
-      // md.renderNavList('1.cat');
     });
   });
 
