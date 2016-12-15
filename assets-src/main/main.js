@@ -3,6 +3,7 @@ $(function(){
   var currentPath = location.pathname;
   var filename = currentPath.split('/');
   filename = filename[filename.length - 1];
+  filename = filename || 'index.html';
 
   $('.J_navItem').each(function(i, item){
     var node = $(item);

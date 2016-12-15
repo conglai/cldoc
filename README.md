@@ -1,9 +1,6 @@
 # 一个简单的文档工具
-Example repo: [https://github.com/ykan/ykan.github.com](https://github.com/ykan/ykan.github.com)
 
-Result: [http://ykan.github.io/blog/](http://ykan.github.io/blog/)
-
-## Install
+## 安装
 ```bash
 ~ npm install cldoc -g
 ```
@@ -27,4 +24,18 @@ Result: [http://ykan.github.io/blog/](http://ykan.github.io/blog/)
 ```
 
 ## 自定义的标签
-[http://www.ykan.space/docs/lasted-1.doc-tool-tag.md.html](http://www.ykan.space/docs/lasted-1.doc-tool-tag.md.html)
+
+### json来渲染表格
+
+```
+```json-table
+[
+  //第一行是标题
+  { "name":"名称", "optional":"是否可选", "type": "类型", "desc":"描述" },
+  { "name":"是打发打发", "optional":1, "type": "string", "desc":"啊啊士大夫撒打发士大夫撒旦法撒旦法撒旦法师的法师打发士大夫撒旦法法师打发士大夫撒旦法法师打发士大夫撒旦法" },
+  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
+  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
+  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" }
+]
+```
+```
