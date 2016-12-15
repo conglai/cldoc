@@ -74,24 +74,6 @@
 \`\`\`
 ```
 
-### json来渲染表格
-
-```
-\`\`\`json-table
-[
-  //第一行是标题
-  { "name":"名称", "optional":"是否可选", "type": "类型", "desc":"描述" },
-  { "name":"是打发打发", "optional":1, "type": "string", "desc":"啊啊士大夫撒打发士大夫撒旦法撒旦法撒旦法师的法师打发士大夫撒旦法法师打发士大夫撒旦法法师打发士大夫撒旦法" },
-  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
-  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
-  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" }
-]
-\`\`\`
-```
-
-渲染结果：
-
-![table](http://cdn.withme.cn/withme.back.u.d34e1916fcbad43b31e0e00861acdfd8.png)
 
 ### 嵌入pug模板
 
@@ -123,4 +105,47 @@ example.pug
 
 ```html
 <div class="ex">example</div>
+```
+
+#### 默认包含一种`json-table.pug`的模板
+
+```
+\`\`\`tpl
+json-table.pug
+[
+  //第一行是标题
+  { "name":"名称", "optional":"是否可选", "type": "类型", "desc":"描述" },
+  { "name":"是打发打发", "optional":1, "type": "string", "desc":"啊啊士大夫撒打发士大夫撒旦法撒旦法撒旦法师的法师打发士大夫撒旦法法师打发士大夫撒旦法法师打发士大夫撒旦法" },
+  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
+  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
+  { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" }
+]
+\`\`\`
+```
+`default-models/json-table.pug`:
+```pug
+table
+  thead
+    tr
+      each key in keys
+        th= titleRow[key]
+  tbody
+    each row in rows
+      tr
+        each key in keys
+          td= row[key]
+
+```
+
+渲染结果：
+
+![table](http://cdn.withme.cn/withme.back.u.d34e1916fcbad43b31e0e00861acdfd8.png)
+
+
+> 工具中包含的默认模板有3个
+```
+- default-models/
+  - layout.pug //布局
+  - nav.pug //导航
+  - json-table.pug //json表格
 ```

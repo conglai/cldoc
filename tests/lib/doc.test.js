@@ -30,19 +30,6 @@ describe('测试lib/doc.js', () => {
     }, { title: 'xxx'});
     // console.log(tagStr);
     // console.log(modelStr);
-    let resultStr = md.renderJSON(modelStr);
-    // console.log(resultStr);
-
-    let str1 = md.renderJSONTable({
-      content: `
-    [
-      {"name": "名称", "type": "类 \
-      型"},
-      {"name": "名称", "type": "类型"},
-      {"name": "名称", "type": "类型"}
-    ]
-    `
-    });
 
     let fileItem = md.defineFile({
       filepath: `${__dirname}/mds/example.md`,

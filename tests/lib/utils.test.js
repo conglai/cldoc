@@ -2,6 +2,7 @@
 const { rootPath } = TEST_GLOBAL;
 const co = require('co');
 const fs = require('fs');
+const path = require('path');
 const utils = require(`${rootPath}/lib/utils`);
 
 function getMD(name) {
@@ -24,7 +25,7 @@ describe('测试lib/utils', () => {
       "title": "\\\/\\/ddd",
     }
     `);
-    console.log(str1);
+    // console.log(str1);
   });
 
   it('->getCodeBlocks', () => {
