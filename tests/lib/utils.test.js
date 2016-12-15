@@ -10,6 +10,23 @@ function getMD(name) {
 
 describe('测试lib/utils', () => {
 
+  it('->filterComment', () => {
+    let str = utils.filterComment(`
+    //会有一部分默认数据
+    {
+      "title": "example", //ddd
+    }
+    `);
+    // console.log(str);
+    let str1 = utils.filterComment(`
+    //会有一部分默认数据
+    {
+      "title": "\\\/\\/ddd",
+    }
+    `);
+    console.log(str1);
+  });
+
   it('->getCodeBlocks', () => {
     let mdStr = getMD('codes.md');
     let blocks = utils.getCodeBlocks(mdStr);

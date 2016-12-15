@@ -25,6 +25,55 @@
 
 ## 自定义的标签
 
+### 嵌入配置
+```
+\`\`\`config
+{
+  "baseUrl": "//cdn.withme.cn/a/cldoc/0.2.7/",
+  //foundation.css, gruvbox-light.css, school-book.css
+  "styleName": "atelier-estuary-light.css"
+}
+\`\`\`
+```
+> 这段代码不会被渲染到文档中，但是它会成为一个数据到模板渲染的默认数据的`config`中
+
+在最外层的`documents/README.md`中的`config`块中，会影响到布局模板的资源路径和样式名，比如上述配置会产生这样的结果：
+
+```html
+<link rel="stylesheet" href="//cdn.withme.cn/a/cldoc/0.2.7/cldoc-atelier-estuary-light.css">
+```
+
+### 可嵌入数据
+```
+\`\`\`json
+{
+  "example": "{{example.json}}"
+}
+\`\`\`
+```
+
+`models/example.json`:
+```
+{
+  // sss
+  "x": "sss", //asdjf;jk;
+  "items": "xxxx"
+}
+```
+
+渲染结果：
+```
+\`\`\`json
+{
+  "example": {
+    // sss
+    "x": "sss", //asdjf;jk;
+    "items": "xxxx"
+  }
+}
+\`\`\`
+```
+
 ### json来渲染表格
 
 ```
@@ -41,3 +90,31 @@
 ```
 
 渲染结果：
+![table](http://cdn.withme.cn/withme.back.u.d34e1916fcbad43b31e0e00861acdfd8.png)
+
+### 嵌入pug模板
+
+```
+\`\`\`tpl
+example.pug
+//第一行必须是文件名，后面是JSON数据
+{
+  "name": "xxx"
+}
+//会有一部分默认数据
+{
+  "title": "example", //ddd
+  "basename": "example",
+  "keywords": [],
+  "filename": "example.md.html",
+  "config": {}
+}
+
+\`\`\`
+```
+
+`models/example.pug`:
+```pug
+.ex= title
+```
+
