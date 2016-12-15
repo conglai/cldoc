@@ -27,13 +27,13 @@
 
 ### 嵌入配置
 ```
-&#x60;&#x60;&#x60;config
+\`\`\`config
 {
   "baseUrl": "//cdn.withme.cn/a/cldoc/0.2.7/",
   //foundation.css, gruvbox-light.css, school-book.css
   "styleName": "atelier-estuary-light.css"
 }
-&#x60;&#x60;&#x60;
+\`\`\`
 ```
 > 这段代码不会被渲染到文档中，但是它会成为一个数据到模板渲染的默认数据的`config`中
 
@@ -45,11 +45,11 @@
 
 ### 可嵌入数据
 ```
-&#x60;&#x60;&#x60;json
+\`\`\`json
 {
   "example": "{{example.json}}"
 }
-&#x60;&#x60;&#x60;
+\`\`\`
 ```
 
 `models/example.json`:
@@ -63,7 +63,7 @@
 
 渲染结果：
 ```
-&#x60;&#x60;&#x60;json
+\`\`\`json
 {
   "example": {
     // sss
@@ -71,13 +71,13 @@
     "items": "xxxx"
   }
 }
-&#x60;&#x60;&#x60;
+\`\`\`
 ```
 
 ### json来渲染表格
 
 ```
-&#x60;&#x60;&#x60;json-table
+\`\`\`json-table
 [
   //第一行是标题
   { "name":"名称", "optional":"是否可选", "type": "类型", "desc":"描述" },
@@ -86,7 +86,7 @@
   { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
   { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" }
 ]
-&#x60;&#x60;&#x60;
+\`\`\`
 ```
 
 渲染结果：
@@ -96,7 +96,7 @@
 ### 嵌入pug模板
 
 ```
-&#x60;&#x60;&#x60;tpl
+\`\`\`tpl
 example.pug
 //第一行必须是文件名，后面是JSON数据
 {
@@ -111,7 +111,7 @@ example.pug
   "config": {}
 }
 
-&#x60;&#x60;&#x60;
+\`\`\`
 ```
 
 `models/example.pug`:
