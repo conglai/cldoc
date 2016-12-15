@@ -28,7 +28,7 @@
 ### json来渲染表格
 
 ```
-```json-table
+\`\`\`json-table
 [
   //第一行是标题
   { "name":"名称", "optional":"是否可选", "type": "类型", "desc":"描述" },
@@ -37,5 +37,7 @@
   { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
   { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" }
 ]
+\`\`\`
 ```
-```
+
+渲染结果：
