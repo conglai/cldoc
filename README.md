@@ -119,3 +119,8 @@ example.pug
 .ex= title
 ```
 
+渲染结果：
+
+```html
+<div class="ex">example</div>
+```
