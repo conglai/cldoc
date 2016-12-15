@@ -87,3 +87,17 @@ gulp.task('dev', done => {
     }
   });
 });
+
+gulp.task('img', () => {
+  let files = fs.readdirSync('assets-src/highlightjs');
+  for (let i = files.length - 1; i >= 0 ; i--) {
+    let filename = files[i];
+    if(filename.indexOf('.css') === -1) {
+      let bitmap = fs.readFileSync(`assets-src/highlightjs/${filename}`);
+    // convert binary data to base64 encoded string
+      let base64str = new Buffer(bitmap).toString('base64');
+      console.log(filename + ':');
+      console.log(base64str);
+    }
+  }
+});
