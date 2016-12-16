@@ -14,8 +14,9 @@
     - example.md // -> common/example.md.html
     - example.ignore.md //注意：如果字符中包含了ignore，那么这个文件/文件夹将会再导航中被忽略
   - README.md // -> index.html 生成最外层的根页面
-- models // 存放数据模型
+- models // 存放数据模型和模板
   - example.json
+  - comment.pug //使用了pug模板
 ```
 
 ## 使用
