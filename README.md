@@ -43,7 +43,7 @@
 <link rel="stylesheet" href="//cdn.withme.cn/a/cldoc/0.2.7/cldoc-atelier-estuary-light.css">
 ```
 
-可用样式，使用了[`highlightjs`](https://github.com/isagalaev/highlight.js/tree/master/src/styles)：
+可用代码样式，使用了[`highlightjs`](https://github.com/isagalaev/highlight.js/tree/master/src/styles)：
 ```
 atelier-estuary-light.css
 foundation.css
