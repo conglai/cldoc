@@ -2,10 +2,15 @@ doctype html
 html
   head
     meta(charset="utf-8")
+    meta(content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="keywords" content=navItem.keywords.join(''))
     title= navItem.title
     link(rel="stylesheet" href=`${rootConfig.baseUrl}cldoc-${rootConfig.styleName}`)
   body
-    .g-nav!= navHtml
     .g-doc.markdown-body!= docHtml
       .g-footer @#{rootConfig.title}
+
+    .g-nav!= navHtml
     script(src=`${rootConfig.baseUrl}cldoc.js`)

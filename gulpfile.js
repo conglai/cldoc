@@ -34,14 +34,18 @@ gulp.task('build-main-js', done => {
   ], done);
 });
 
-function buildStyle(styleName) {
+function buildStyle(styleName, noCompress) {
   return new Promise((resolve, reject) => {
-    pump([
+    let streams = [
       gulp.src(['assets/main.css', `assets-src/highlightjs/${styleName}`]),
-      concat(`cldoc-${styleName}`),
-      cssnano(),
-      gulp.dest('assets')
-    ], resolve);
+      concat(`cldoc-${styleName}`)
+    ];
+    if(!noCompress) {
+      gutil.log(`run ${styleName} with cssnano`);
+      streams.push(cssnano());
+    }
+    streams.push(gulp.dest('assets'));
+    pump(streams, resolve);
   });
 }
 
@@ -72,8 +76,8 @@ gulp.task('dev', done => {
     if(filepath.indexOf('.less') !== -1) {
       buildMain(() => {
         gutil.log('main.css built.');
-        buildStyle('gruvbox-dark.css').then(() => {
-          gutil.log('cldoc-gruvbox-dark.css built.');
+        buildStyle('atelier-estuary-light.css', true).then(() => {
+          gutil.log('cldoc-atelier-estuary-light.css built.');
         });
       });
     } else if(filepath.indexOf('.js') !== -1) {
