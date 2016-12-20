@@ -18,8 +18,6 @@ describe('测试lib/doc.js', () => {
       `${__dirname}/build`
     );
 
-    let modelStr = md.getModel('m1.json');
-
     let tagStr = md.renderTagTpl({
       content: `
       test.pug
