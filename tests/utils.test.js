@@ -43,6 +43,19 @@ describe('测试lib/utils', () => {
     `);
   });
 
+
+  it('->getNavTree', () => {
+    let navTree = [
+      { filename: 'sss.ignore' },
+      { filename: 'ss.ignore' },
+      { filename: 'sss.igore' },
+    ];
+    let result = utils.getNavTree(navTree, /ignore/, true);
+    result.length.should.be.equal(1);
+    let result2 = utils.getNavTree(navTree, /ignore/, false);
+    result2.length.should.be.equal(2);
+  });
+
   it('->getTree', () => {
     return co(function*(){
       let navTree = yield utils.getTree(`${__dirname}/tree`, 1);

@@ -38,19 +38,6 @@ describe('测试lib/doc.js', () => {
 
   });
 
-  it('->getNavTree', () => {
-    let doc = targetFunc();
-    let navTree = [
-      { filepath: 'sss.ignore' },
-      { filepath: 'ss.ignore' },
-      { filepath: 'sss.igore' },
-    ];
-    let result = doc.getNavTree(navTree, /ignore/, true);
-    result.length.should.be.equal(1);
-    let result2 = doc.getNavTree(navTree, /ignore/, false);
-    result2.length.should.be.equal(2);
-  });
-
   it('测试渲染文档', () => {
     return co(function*(){
       let doc = targetFunc(
