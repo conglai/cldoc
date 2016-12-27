@@ -27,7 +27,7 @@ function getNodeHeight(node) {
 }
 function checkWebp(cb) {
   var img = new Image();
-  img.onload = () => {
+  img.onload = function() {
     cb(img.height === 1);
   };
   img.src = 'data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQCdASoBAAEAAAAMJaQAA3AA/v89WAAAAA==';
