@@ -1,0 +1,14 @@
+- var widthStyle = w > 1 ? 'width:' + w + 'px': 'width: ' + w * 100 + '%'
+if h
+  - widthStyle += '; height:' + h + 'px'
+  span.J_lazyImg.qiniu-img(
+    data-src-tpl= src + '?imageView2/1/w/{{w}}/h/{{h}}/format/{{format}}'
+    style=widthStyle
+  )
+else
+  - var currentAspect = aspect || 1
+  span.J_lazyImg.qiniu-img(
+    data-src-tpl= src + '?imageView2/1/w/{{w}}/h/{{h}}/format/{{format}}'
+    data-aspect= currentAspect
+    style=widthStyle
+  )

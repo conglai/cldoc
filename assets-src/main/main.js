@@ -25,33 +25,55 @@ function lazyScroll(checkFunc, time){
 function getNodeHeight(node) {
   return node.innerHeight ? node.innerHeight(): node.height();
 }
-function imgFunc(config) {
-  let { ratio, canWebp, mode } = config;
-  mode = mode || 1;
-  ratio = ratio || 1;
-  let formatStr = '';
-  if(canWebp) {
-    formatStr = '/format/webp';
+function checkWebp(cb) {
+  var img = new Image();
+  img.onload = () => {
+    cb(img.height === 1);
+  };
+  img.src = 'data:image/webp;base64,UklGRiYAAABXRUJQVlA4IBoAAAAwAQCdASoBAAEAAAAMJaQAA3AA/v89WAAAAA==';
+}
+function imgFunc() {
+  var canUseWebp = window.navigator.userAgent.indexOf('Chrome') !== -1;
+  if(!canUseWebp) {
+    checkWebp(function(isWebp) {
+      canUseWebp = isWebp;
+    });
   }
+  var ratio = window.devicePixelRatio || 1;
 
   function loadImg(imgNode) {
-    let w = imgNode.width();
-    let h = getNodeHeight(imgNode);
-    let src = imgNode.data('img');
-    let wNum = Math.floor(w * ratio);
-    let hNum = Math.floor(h * ratio);
-    let imgPath = `${src}?imageView2/${mode}/w/${wNum}/h/${hNum}${formatStr}`;
-    let imgObj = new Image();
-    imgObj.onload = () => {
-      imgNode.css({
-        backgroundImage: `url('${imgPath}')`,
-        backgroundSize: `cover`,
-        backgroundPosition: `0px 0px`,
-      });
+    var w = imgNode.width();
+    var h = getNodeHeight(imgNode);
+    var aspect = imgNode.data('aspect');
+    aspect = Number(aspect);
+    if(aspect) {
+      h = Math.floor(w * aspect);
+    } else {
+      h = getNodeHeight(imgNode);
+    }
+    var srcTpl = imgNode.data('src-tpl');
+    var wNum = Math.floor(w * ratio);
+    var hNum = Math.floor(h * ratio);
+    var formatStr = canUseWebp ? 'webp': 'jpg';
+
+    var imgPath = srcTpl.replace('{{w}}', wNum)
+      .replace('{{h}}', hNum)
+      .replace('{{format}}', formatStr);
+    var imgObj = new Image();
+    imgObj.onload = function() {
+      var cssObj = {
+        backgroundImage: 'url("' + imgPath + '")',
+        backgroundSize: 'cover',
+        backgroundPosition: '0px 0px',
+      };
+      if(aspect) {
+        cssObj.height = h;
+      }
+      imgNode.css(cssObj);
     };
     imgObj.src = imgPath;
   }
-  let imgArr = [];
+  var imgArr = [];
   return {
     addImages: function(imgs) {
       imgArr = imgArr.concat(imgs);
@@ -60,12 +82,12 @@ function imgFunc(config) {
       imgArr = [];
     },
     check: function(scrollTop, viewHeight) {
-      imgArr.forEach(imgNode => {
-        let { top } = imgNode.offset();
-        let height = getNodeHeight(imgNode);
-        let topInView = top > scrollTop && top < scrollTop + viewHeight;
-        let bottomInView = top + height > scrollTop && top + height < scrollTop + viewHeight;
-        let inView = topInView || bottomInView;
+      imgArr.forEach(function(imgNode) {
+        var top = imgNode.offset().top;
+        var height = getNodeHeight(imgNode);
+        var topInView = top > scrollTop && top < scrollTop + viewHeight;
+        var bottomInView = top + height > scrollTop && top + height < scrollTop + viewHeight;
+        var inView = topInView || bottomInView;
         if(!imgNode._loading && inView) {
           imgNode._loading = true;
           loadImg(imgNode);
@@ -78,6 +100,7 @@ function imgFunc(config) {
 
 $(function(){
   var currentPath = location.pathname;
+  var win = window;
   var filename = currentPath.split('/');
   filename = filename[filename.length - 1];
   filename = filename || 'index.html';
@@ -90,4 +113,16 @@ $(function(){
       node.addClass('active');
     }
   });
+  var imgs = [];
+  $('.J_lazyImg').each(function(i, img){
+    imgs.push($(img));
+  });
+  var imgTool = imgFunc();
+  imgTool.addImages(imgs);
+
+  var viewHeight = $(win).height();
+  lazyScroll(function(){
+    var scrollTop = $(win).scrollTop();
+    imgTool.check(scrollTop, viewHeight);
+  }, 300);
 });
