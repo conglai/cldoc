@@ -1,4 +1,12 @@
 # 一个简单的文档工具
+[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url]
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: LICENSE
+
+[npm-url]: https://npmjs.org/package/cldoc
+[npm-version-image]: http://img.shields.io/npm/v/cldoc.svg?style=flat
+[npm-downloads-image]: http://img.shields.io/npm/dm/cldoc.svg?style=flat
+
 
 ## 安装
 ```bash
