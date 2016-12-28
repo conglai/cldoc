@@ -1,5 +1,4 @@
 # 一个简单的文档工具
-![travis](https://travis-ci.org/conglai/cldoc.svg?branch=master)
 [![NPM version][npm-version-image]][npm-url] 
 [![NPM downloads][npm-downloads-image]][npm-url] 
 [![MIT License][license-image]][license-url]
