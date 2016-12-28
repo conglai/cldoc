@@ -1,5 +1,8 @@
 # 一个简单的文档工具
-[![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-url] [![MIT License][license-image]][license-url]
+![travis](https://travis-ci.org/conglai/cldoc.svg?branch=master)
+[![NPM version][npm-version-image]][npm-url] 
+[![NPM downloads][npm-downloads-image]][npm-url] 
+[![MIT License][license-image]][license-url]
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
 
