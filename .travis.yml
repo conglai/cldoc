@@ -1,5 +1,4 @@
 language: node_js
 node_js:
 - '6.9.1'
-before_script: "mkdir tests/build"
-script: "npm run cover"
+script: "mkdir tests/build && npm run cover"
