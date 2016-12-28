@@ -18,8 +18,6 @@ describe('测试lib/doc.js', () => {
       `${__dirname}/build`
     );
 
-    let modelStr = md.getModel('m1.json');
-
     let tagStr = md.renderTagTpl({
       content: `
       test.pug
@@ -38,19 +36,6 @@ describe('测试lib/doc.js', () => {
     }, `${__dirname}/mds`);
     // console.log(fileItem);
 
-  });
-
-  it('->getNavTree', () => {
-    let doc = targetFunc();
-    let navTree = [
-      { filepath: 'sss.ignore' },
-      { filepath: 'ss.ignore' },
-      { filepath: 'sss.igore' },
-    ];
-    let result = doc.getNavTree(navTree, /ignore/, true);
-    result.length.should.be.equal(1);
-    let result2 = doc.getNavTree(navTree, /ignore/, false);
-    result2.length.should.be.equal(2);
   });
 
   it('测试渲染文档', () => {
