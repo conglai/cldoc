@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "http-server assets -p 8088",
     "mocha": "NODE_ENV=test mocha tests/**/*.test.js -r ./tests/a.helper.js -R dot -w",
-    "cover": "node_modules/.bin/istanbul cover --report html node_modules/.bin/_mocha -- tests/**/*.test.js -r ./tests/a.helper.js -R spec"
+    "cover": "node_modules/.bin/istanbul cover --report lcovonly node_modules/.bin/_mocha -- tests/**/*.test.js -r ./tests/a.helper.js -R spec"
   },
   "main": "lib/doc.js",
   "bin": {
@@ -37,6 +37,7 @@
     "http-server": "^0.9.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
+    "mocha-lcov-reporter": "^1.2.0",
     "pump": "^1.0.1",
     "should": "^8.2.2",
     "should-sinon": "0.0.5",
