@@ -4,7 +4,6 @@ const should = require('should');
 const sinon = require('sinon');
 const fse = require('fs-extra');
 
-fse.ensureDirSync(__dirname + '/build');
 require('should-sinon');
 const rootPath = path.normalize(__dirname + '/..');
 
