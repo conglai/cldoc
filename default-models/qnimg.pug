@@ -6,7 +6,8 @@ if h
     style=widthStyle
   )
 else
-  - var currentAspect = aspect || 1
+  - var currentAspect = (ow && oh) ? oh/ow : aspect;
+  - currentAspect = aspect || 1
   span.J_lazyImg.qiniu-img(
     data-src-tpl= src + '?imageView2/1/w/{{w}}/h/{{h}}/format/{{format}}'
     data-aspect= currentAspect
