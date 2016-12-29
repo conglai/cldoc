@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "http-server -p 8088",
     "mocha": "NODE_ENV=test mocha tests/**/*.test.js -r ./tests/a.helper.js -R dot -w",
-    "cover": "node_modules/.bin/istanbul cover --report lcovonly node_modules/.bin/_mocha -- tests/**/*.test.js -r ./tests/a.helper.js -R spec"
+    "cover": "node_modules/.bin/istanbul cover --report lcovonly node_modules/.bin/_mocha -- tests/**/*.test.js -r ./tests/a.helper.js -R spec",
+    "c": "node_modules/.bin/istanbul cover --report html node_modules/.bin/_mocha -- tests/**/*.test.js -r ./tests/a.helper.js -R spec"
   },
   "main": "lib/doc.js",
   "bin": {
