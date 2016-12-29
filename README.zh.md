@@ -1,4 +1,4 @@
-# A Simple Document Tool
+# 一个简单的文档工具
 [![NPM version][npm-version-image]][npm-url] 
 [![NPM downloads][npm-downloads-image]][npm-url] 
 [![Build Status](https://travis-ci.org/conglai/cldoc.svg?branch=master)](https://travis-ci.org/conglai/cldoc)
@@ -12,12 +12,12 @@
 [npm-downloads-image]: http://img.shields.io/npm/dm/cldoc.svg?style=flat
 
 
-## Install
+## 安装
 ```bash
 ~ npm install cldoc -g
 ```
 
-## Usage
+## 使用
 ```
 ~ cldoc --help
 
@@ -30,34 +30,33 @@
     -h, --help     output usage information
     -V, --version  output the version number
 ```
-* outputDir: target build directory.
-* dirs: directories or `README.md`
+* outputDir: 输出目录
+* dirs: 当前目录下的文件夹，也可以是`README.md`
 
-You may use like this:
+比如：
 ```
 ~ cldoc build dir1 dir2 README.md
 ```
 
-Example：[My space](https://www.ykan.space/docs/)
+一个简单的例子：[我的空间](https://www.ykan.space/docs/)
 
-## Default Directory 
-If you just run `cldoc build`, your directory should be like:
+## 目录结构
+仓库必须包含以下两个目录：
 ```
-- documents //put markdown fils here
-  - common // sub dir
-    - README.md //sub index, generate common/index.html
+- documents //存放文档
+  - common // 类目目录，可以自己新建文件夹
+    - README.md //目录的根页面，会被渲染为index.html，比如common/README.md，会生成common/index.html
     - example.md // -> common/example.md.html
-    - example.ignore.md //if ignore，file will not in nav tree
-  - README.md // -> index.html 
-- models // you can replace default-models files here
+    - example.ignore.md //注意：如果字符中包含了ignore，那么这个文件/文件夹将会再导航中被忽略
+  - README.md // -> index.html 生成最外层的根页面
+- models // 存放数据模型和模板
   - example.json
-  - comment.pug //only use pug
+  - comment.pug //使用了pug模板
 ```
 
+## 自定义的标签
 
-## Custom Code Tag
-
-### Config
+### 嵌入配置
 ```
 \`\`\`config
 {
@@ -67,24 +66,24 @@ If you just run `cldoc build`, your directory should be like:
 }
 \`\`\`
 ```
-> This block will not be rendered.
+> 这段代码不会被渲染到文档中，但是它会成为一个数据到模板渲染的默认数据的`config`中
 
-The `documents/README.md`'s `config` will be used in layout.pug, for example `baseUrl` will use like this：
+在最外层的`documents/README.md`中的`config`块中，会影响到布局模板的资源路径和样式名，比如上述配置会产生这样的结果：
 
 ```html
 <link rel="stylesheet" href="//cdn.withme.cn/a/cldoc/0.2.7/cldoc-atelier-estuary-light.css">
 ```
 
-Choose code style you like:（[highlightjs styles](https://github.com/isagalaev/highlight.js/tree/master/src/styles)）：
+代码样式，使用了`highlightjs`（[highlightjs可用样式](https://github.com/isagalaev/highlight.js/tree/master/src/styles)）：
 ```
 atelier-estuary-light.css
 foundation.css
 gruvbox-light.css
 school-book.css
-... // and so on
+...
 ```
 
-### Embed JSON
+### 可嵌入数据
 ```
 \`\`\`json
 {
@@ -102,7 +101,7 @@ school-book.css
 }
 ```
 
-Result:
+渲染结果：
 ```
 \`\`\`json
 {
@@ -116,23 +115,23 @@ Result:
 ```
 
 
-### Use Pug
+### 嵌入pug模板
 
 ```
 \`\`\`tpl
 example.pug
-//First line should be just tpl file name.
+//第一行必须是文件名，后面是JSON数据
 {
   "name": "xxx"
 }
-//these are default data provide by code.
-/*{
+//会有一部分默认数据
+{
   "title": "example", //ddd
   "basename": "example",
   "keywords": [],
   "filename": "example.md.html",
   "config": {}
-}*/
+}
 
 \`\`\`
 ```
@@ -142,19 +141,19 @@ example.pug
 .ex= title
 ```
 
-Result:
+渲染结果：
 
 ```html
 <div class="ex">example</div>
 ```
 
-#### Default Pug Tpl(`json-table.pug`)
+#### 默认包含一种`json-table.pug`的模板
 
 ```
 \`\`\`tpl
 json-table.pug
 [
-  //First Line is title line
+  //第一行是标题
   { "name":"名称", "optional":"是否可选", "type": "类型", "desc":"描述" },
   { "name":"是打发打发", "optional":1, "type": "string", "desc":"啊啊士大夫撒打发士大夫撒旦法撒旦法撒旦法师的法师打发士大夫撒旦法法师打发士大夫撒旦法法师打发士大夫撒旦法" },
   { "name":"yushan", "optional":1, "type": "string", "desc":"xxx" },
@@ -178,7 +177,15 @@ table
 
 ```
 
-Result:
+渲染结果：
 
 ![table](http://cdn.withme.cn/withme.back.u.d34e1916fcbad43b31e0e00861acdfd8.png)
 
+
+> 工具中包含的默认模板有3个
+```
+- default-models/
+  - layout.pug //布局
+  - nav.pug //导航
+  - json-table.pug //json表格
+```
