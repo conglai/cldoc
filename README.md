@@ -38,7 +38,10 @@ You may use like this:
 ~ cldoc build dir1 dir2 README.md
 ```
 
-Example：[My space](https://www.ykan.space/docs/)
+## Example
+Site: [https://www.ykan.space/docs/](https://www.ykan.space/docs/)
+
+Repo: [https://github.com/ykan/ykan.github.com](https://github.com/ykan/ykan.github.com)
 
 ## Default Directory 
 If you just run `cldoc build`, your directory should be like:
