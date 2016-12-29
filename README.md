@@ -54,6 +54,26 @@ If you just run `cldoc build`, your directory should be like:
   - comment.pug //only use pug
 ```
 
+## NodeJS API
+
+You may also use it in your own build process, like Gulp/Grunt:
+
+```js
+const cldoc = require('cldoc')(
+  'models-dir', // provide a custom model dir, it can be not exits
+  'output-dir', // dir that put output files 
+);
+
+
+cldoc.renderFileTree(['documents', 'another-dir',  'README.md'], (err, item) => {
+  console.log(`generate ${item.filename}`);
+});
+// Or just one directory.
+cldoc.renderFileTree('documents', (err, item) => {
+  console.log(`generate ${item.filename}`);
+});
+
+```
 
 ## Custom Code Tag
 
