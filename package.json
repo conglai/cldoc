@@ -1,9 +1,9 @@
 {
   "name": "cldoc",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Example",
   "scripts": {
-    "dev": "http-server assets -p 8088",
+    "dev": "http-server -p 8088",
     "mocha": "NODE_ENV=test mocha tests/**/*.test.js -r ./tests/a.helper.js -R dot -w",
     "cover": "node_modules/.bin/istanbul cover --report lcovonly node_modules/.bin/_mocha -- tests/**/*.test.js -r ./tests/a.helper.js -R spec"
   },

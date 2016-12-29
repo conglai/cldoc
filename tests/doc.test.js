@@ -29,23 +29,22 @@ describe('测试lib/doc.js', () => {
     // console.log(tagStr);
     // console.log(modelStr);
 
-    let fileItem = md.defineFile({
-      filepath: `${__dirname}/mds/example.md`,
-      basename: 'example.md',
-      tabSize: 2
-    }, `${__dirname}/mds`);
-    // console.log(fileItem);
-
   });
 
   it('测试渲染文档', () => {
     return co(function*(){
       let doc = targetFunc(
         `${__dirname}/models`,
-        `${__dirname}/tree`,
         `${__dirname}/build`
       );
-      yield doc.renderFileTree();
+      yield doc.renderFileTree(`${__dirname}/tree`);
+
+      yield doc.renderFileTree([
+        `${__dirname}/tree`,
+        `${__dirname}/tree.1`,
+        `${__dirname}/tree.2`,
+        `${__dirname}/mds/README.md`
+      ]);
     });
   });
 

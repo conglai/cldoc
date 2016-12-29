@@ -2,7 +2,6 @@
 
 ```config
 {
-  "baseUrl": "\/\/cdn.withme.cn\/a\/cldoc\/0.2.0\/",
   //ssss
   "x": ""
   //sasd

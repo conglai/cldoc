@@ -26,17 +26,26 @@ function cleanDir(dirPath) {
 
 program
   .version('0.1.0')
-  .arguments('<outputDir>')
+  .arguments('<outputDir> [dirs...]')
   .description('文档工具')
-  .action(outputDir => {
+  .action((outputDir, dirs) => {
     console.log('run doc .....');
     co(function*(){
       yield cleanDir(outputDir);
       fse.ensureDirSync(outputDir);
-      let doc = docFunc(`${workspace}/models`, `${workspace}/documents`, outputDir);
-      yield doc.renderFileTree(item => {
-        console.log(`generate ${item.filename}`);
-      });
+
+      let doc = docFunc(`${workspace}/models`,  outputDir);
+      if(dirs && dirs.length) {
+        dirs = dirs.map(dir => `${workspace}/${dir}`);
+        yield doc.renderFileTree(dirs, (err, item) => {
+          console.log(`generate ${item.filename}`);
+        });
+      } else {
+        yield doc.renderFileTree(`${workspace}/documents`, (err, item) => {
+          console.log(`generate ${item.filename}`);
+        });
+      }
+
     });
   });
 

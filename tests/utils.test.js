@@ -59,7 +59,22 @@ describe('测试lib/utils', () => {
   it('->getTree', () => {
     return co(function*(){
       let navTree = yield utils.getTree(`${__dirname}/tree`, 1);
-      // console.log(navTree);
+      let navTree1 = yield utils.getTree(`${__dirname}/tree`, 1, 'tree-');
+    });
+  });
+
+  it('->defineFile', () => {
+    return co(function*(){
+      let item = yield utils.defineFile({
+        filepath: `${__dirname}/mds/example.md`,
+        basename: 'example.md',
+        tabSize: 2
+      }, __dirname + '/mds', 'ssss-');
+      // console.log(item);
+      item.should.have.keys('title', 'tabSize', 'blocks', 'url', 'filename',
+        'basename', 'keywords', 'filepath', 'config');
+      item.config.baseUrl.should.be.equal('xxxx');
+      item.filename.should.be.equal('ssss-example.md.html');
     });
   });
 
