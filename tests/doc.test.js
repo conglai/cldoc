@@ -39,7 +39,7 @@ describe('测试lib/doc.js', () => {
 
     let tagStr2 = md.renderTagTpl({
       content: `
-      test.pug
+      test.1.pug
       `
     }, { title: '1212'});
     // console.log(tagStr2);
@@ -70,6 +70,10 @@ describe('测试lib/doc.js', () => {
         `${__dirname}/tree.2`,
         `${__dirname}/mds/README.md`
       ]);
+
+      doc.renderFileTree().catch(e =>  {
+        // console.log(e);
+      });
     });
   });
 
