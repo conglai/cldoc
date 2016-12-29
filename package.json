@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com:conglai/cldoc.git"
+    "url": "https://github.com/conglai/cldoc"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
