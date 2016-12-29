@@ -13,6 +13,7 @@
 
 
 ## Install
+With ES6 destructuring used, it requires `NodeJS >= 6.9.1`.
 ```bash
 ~ npm install cldoc -g
 ```
