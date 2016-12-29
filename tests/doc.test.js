@@ -14,7 +14,6 @@ describe('测试lib/doc.js', () => {
   it('基础功能', () => {
     let md = targetFunc(
       `${__dirname}/models`,
-      `${__dirname}/mds`,
       `${__dirname}/build`
     );
 
@@ -26,7 +25,24 @@ describe('测试lib/doc.js', () => {
       }
       `
     }, { title: 'xxx'});
-    // console.log(tagStr);
+    let tagStr1 = md.renderTagTpl({
+      content: `
+      test.pug
+      {
+        "xx":"xx
+      }
+      `
+    }, { title: 'xxx'});
+
+    let jsonStr = md.renderJSON(`
+    {
+      "test": "{{m4.json}}"
+    }
+    `);
+    console.log(jsonStr);
+
+
+    // console.log(tagStr1);
     // console.log(modelStr);
 
   });

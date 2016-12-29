@@ -75,6 +75,13 @@ describe('测试lib/utils', () => {
         'basename', 'keywords', 'filepath', 'config');
       item.config.baseUrl.should.be.equal('xxxx');
       item.filename.should.be.equal('ssss-example.md.html');
+
+      let item1 = yield utils.defineFile({
+        filepath: `${__dirname}/mds/example.1.md`,
+        basename: 'example.1.md',
+        tabSize: 2
+      }, __dirname + '/mds', 'ssss-');
+      // console.log(item1);
     });
   });
 
