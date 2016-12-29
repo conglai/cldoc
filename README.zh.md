@@ -2,7 +2,7 @@
 [![NPM version][npm-version-image]][npm-url] 
 [![NPM downloads][npm-downloads-image]][npm-url] 
 [![Build Status](https://travis-ci.org/conglai/cldoc.svg?branch=master)](https://travis-ci.org/conglai/cldoc)
-[![Coverage Status](https://coveralls.io/repos/github/conglai/cldoc/badge.svg)](https://coveralls.io/github/conglai/cldoc)
+[![Coverage Status](https://coveralls.io/repos/github/conglai/cldoc/badge.svg?t=1111)](https://coveralls.io/github/conglai/cldoc)
 [![MIT License][license-image]][license-url]
 [license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
 [license-url]: LICENSE
@@ -13,6 +13,7 @@
 
 
 ## 安装
+NodeJS版本要求：`>=6.9.1`
 ```bash
 ~ npm install cldoc -g
 ```
@@ -38,10 +39,12 @@
 ~ cldoc build dir1 dir2 README.md
 ```
 
-一个简单的例子：[我的空间](https://www.ykan.space/docs/)
+## 一个简单的例子
+网址：[http://ykan.github.io/blog/](http://ykan.github.io/blog/)
+仓库：[https://github.com/ykan/ykan.github.com](https://github.com/ykan/ykan.github.com)
 
-## 目录结构
-仓库必须包含以下两个目录：
+## 默认的目录
+如果你只使用`cldoc build`，不指定目录，仓库必须包含以下两个目录：
 ```
 - documents //存放文档
   - common // 类目目录，可以自己新建文件夹
