@@ -25,6 +25,8 @@ describe('测试lib/doc.js', () => {
       }
       `
     }, { title: 'xxx'});
+
+
     let tagStr1 = md.renderTagTpl({
       content: `
       test.pug
@@ -33,6 +35,14 @@ describe('测试lib/doc.js', () => {
       }
       `
     }, { title: 'xxx'});
+    // console.log(tagStr1);
+
+    let tagStr2 = md.renderTagTpl({
+      content: `
+      test.pug
+      `
+    }, { title: '1212'});
+    // console.log(tagStr2);
 
     let jsonStr = md.renderJSON(`
     {
@@ -42,7 +52,6 @@ describe('测试lib/doc.js', () => {
     // console.log(jsonStr);
 
 
-    // console.log(tagStr1);
     // console.log(modelStr);
 
   });
