@@ -39,7 +39,7 @@ describe('测试lib/doc.js', () => {
       "test": "{{m4.json}}"
     }
     `);
-    console.log(jsonStr);
+    // console.log(jsonStr);
 
 
     // console.log(tagStr1);
