@@ -85,7 +85,7 @@ cldoc.renderFileTree('documents', (err, item) => {
 ```
 \`\`\`config
 {
-  "baseUrl": "\/\/cdn.withme.cn\/a\/cldoc\/0.2.7\/", // you may have escape '/' use '\/' 
+  "baseUrl": "//cdn.withme.cn/a/cldoc/0.2.7/", // be carefull that '//' must have a white space char before it
   //foundation.css, gruvbox-light.css, school-book.css
   "styleName": "atelier-estuary-light.css"
 }
@@ -147,7 +147,9 @@ Result:
 example.pug
 //First line should be just tpl file name.
 {
-  "name": "xxx"
+  "name": "xxx" // Maybe you will want to write comments, 
+  // but be careful that you may just use '//', 
+  // '//'and must have a white space char before it.
 }
 //these are default data provide by code.
 //{

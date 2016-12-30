@@ -31,7 +31,7 @@ describe('测试lib/doc.js', () => {
       content: `
       test.pug
       {
-        "xx":"xx
+        "xx":"http://cdn.withme.cn/p/sa.png"
       }
       `
     }, { title: 'xxx'});

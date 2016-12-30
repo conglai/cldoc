@@ -12,20 +12,15 @@ function getMD(name) {
 describe('测试lib/utils', () => {
 
   it('->filterComment', () => {
-    let str = utils.filterComment(`
-    //会有一部分默认数据
-    {
-      "title": "example", //ddd
+    let str2 = utils.filterComment(`//会有一部分默认数据
+    { //会有一部分默认数据
+//会有一部分默认数据
+      "title": "http://cdn.withme.cn/s/ss.png", //默认数据
+      "title1": "http://cdn.withme.cn/s/ss.png", //默认数据
+      "title2": "http://cdn.withme.cn/s/ss.png" //默认数据
     }
     `);
-    // console.log(str);
-    let str1 = utils.filterComment(`
-    //会有一部分默认数据
-    {
-      "title": "\\\/\\/ddd",
-    }
-    `);
-    // console.log(str1);
+    console.log(str2);
   });
 
   it('->getCodeBlocks', () => {
