@@ -40,7 +40,7 @@ You may use like this:
 ```
 
 ## Example
-Site: [https://www.ykan.space/docs/](https://www.ykan.space/docs/)
+Site: [https://ykan.github.io/blog/](https://ykan.github.io/blog/)
 
 Repo: [https://github.com/ykan/ykan.github.com](https://github.com/ykan/ykan.github.com)
 
