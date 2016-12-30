@@ -85,7 +85,7 @@ cldoc.renderFileTree('documents', (err, item) => {
 ```
 \`\`\`config
 {
-  "baseUrl": "//cdn.withme.cn/a/cldoc/0.2.7/",
+  "baseUrl": "\/\/cdn.withme.cn\/a\/cldoc\/0.2.7\/", // you may have escape '/' use '\/' 
   //foundation.css, gruvbox-light.css, school-book.css
   "styleName": "atelier-estuary-light.css"
 }
@@ -150,13 +150,13 @@ example.pug
   "name": "xxx"
 }
 //these are default data provide by code.
-/*{
-  "title": "example", //ddd
-  "basename": "example",
-  "keywords": [],
-  "filename": "example.md.html",
-  "config": {}
-}*/
+//{
+//  "title": "example", //ddd
+//  "basename": "example",
+//  "keywords": [],
+//  "filename": "example.md.html",
+//  "config": {}
+//}
 
 \`\`\`
 ```
