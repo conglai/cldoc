@@ -1,6 +1,6 @@
 {
   "name": "cldoc",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "Example",
   "scripts": {
     "dev": "http-server -p 8088",
