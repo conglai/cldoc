@@ -27,11 +27,16 @@ function cleanDir(dirPath) {
 program
   .version('0.1.0')
   .arguments('<outputDir> [dirs...]')
+  .option('-c, --cancel-clean', '取消清理目录')
   .description('文档工具')
   .action((outputDir, dirs) => {
     console.log('run doc .....');
     co(function*(){
-      yield cleanDir(outputDir);
+      if(!program.cancelClean) {
+        yield cleanDir(outputDir);
+      } else {
+        console.log('Dir clean is canceled...');
+      }
       fse.ensureDirSync(outputDir);
 
       let doc = docFunc(`${workspace}/models`,  outputDir);
