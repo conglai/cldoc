@@ -208,3 +208,72 @@ Result:
 
 ![table](http://cdn.withme.cn/withme.back.u.d34e1916fcbad43b31e0e00861acdfd8.png)
 
+
+### Custom Layout
+
+#### Data Struct
+Every markdown file will finally parse like this:
+
+```
+{
+  "title": "title",
+  "tabSize": 0,
+  "blocks": [
+    {
+      "type": "text",
+      "content": "# title\n\n`hey-xxx`\n\n\n"
+    },
+    {
+      "type": "code",
+      "codeType": "json-table",
+      "content": "\n[\n  { \"name\": \"名称\", \"type\": \"类型\" },  \n  // 只能有行注释\n  { \"name\": \"xxx\", \"type\": \"string\" },  \n  { \"name\": \"xx1\", \"type\": \"intger\" }  \n]\n"
+    },
+    {
+      "type": "text",
+      "content": "\n\n\n## 测试渲染JSON\n\n`hey-xxx`对对对`hey-xxx`\n\n"
+    },
+    {
+      "type": "code",
+      "codeType": "json",
+      "content": "\n[\n  { \"name\": \"{{m1.json}}\", \"type\": \"类型\" },  \n  // 只能有行注释\n  { \"name\": \"xxx\", \"type\": \"string\" },  \n  { \"name\": \"xx1\", \"type\": \"intger\" }  \n]\n"
+    },
+    {
+      "type": "text",
+      "content": "\n\n"
+    }
+  ],
+  "url": "./index.html",
+  "filename": "index.html",
+  "basename": "README.md",
+  "keywords": [
+    "title",
+    "hey-xxx",
+    "hey-xxx",
+    "hey-xxx"
+  ],
+  "config": {
+    "layout": "home.pug"
+  },
+  "filepath": "/xxx/cldoc/tests/mds/README.md"
+}
+```
+If you have a `home.pug` in your `models` directory, you can custom your layout use:
+
+```
+\`\`\`config
+{
+  "layout": "home.pug"
+}
+\`\`\`
+```
+
+And the default data of `home.pug` is like this:
+```
+{
+  navHtml, //a html string of rendered `nav.pug`
+  navItem, //current markdown file data
+  rootConfig, //root `README.md`'s config
+  docHtml, //rendered markdown html
+  navTree //all file datas
+}
+```

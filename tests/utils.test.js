@@ -20,7 +20,7 @@ describe('测试lib/utils', () => {
       "title2": "http://cdn.withme.cn/s/ss.png" //默认数据
     }
     `);
-    console.log(str2);
+    // console.log(str2);
   });
 
   it('->getCodeBlocks', () => {
